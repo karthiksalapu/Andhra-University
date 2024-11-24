@@ -1,0 +1,678 @@
+Web Technology Lab: Assignment 1
+
+
+1.Program Statement: Create a HTML page that includes an image gallery (3
+images in one row) which acts as a link. Also, images should be with capƟon &
+scales responsively to the page. 
+
+Solution:
+
+
+HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <a href="https://res.cloudinary.com/duct1zxxm/image/upload/v1683910713/people-saving-money_24908-51569_mqgvd5.avif" target="_blank">
+                <img class="image-style" src="https://res.cloudinary.com/duct1zxxm/image/upload/v1683910713/people-saving-money_24908-51569_mqgvd5.avif" alt="Image 1">
+                <p class="caption">Karthik Salapu</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://res.cloudinary.com/duct1zxxm/image/upload/v1672225004/cld-sample-4.jpg" target="_blank">
+                <img class="image-style" src="https://res.cloudinary.com/duct1zxxm/image/upload/v1672225004/cld-sample-4.jpg" alt="Image 2">
+                <p class="caption">Food Menu</p>
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://res.cloudinary.com/duct1zxxm/image/upload/v1672815899/whatsapp-logo-png-2261_lfcadk.png" target="_blank">
+                <img class="image-style" src="https://res.cloudinary.com/duct1zxxm/image/upload/v1672815899/whatsapp-logo-png-2261_lfcadk.png" alt="Image 3">
+                <p class="caption">Whatsapp Application</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+CSS : 
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-left: 35px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.333% - 20px);
+    /* Three items in a row with some space */
+    margin: 10px;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.image-style {
+    min-height: 320px;
+    min-width: 300px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px);
+        Two items in a row on smaller screens
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 1 1 100%;
+        One item in a row on very small screens
+    }
+}
+
+
+
+<!-- ============================================================================== -->
+
+
+
+2.Program Statement: Create a Simple HTML Form to collect personal data
+including the following form elements:
+Text field for name, Password field, Email field, List of hobbies, Radio buttons
+for gender, Checkboxes for interests, Submit button.
+
+
+HTML : 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Data Collection Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Personal Data Collection Form</h1>
+        <form action="#" method="post">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="hobbies">Hobbies:</label>
+            <select id="hobbies" name="hobbies" required>
+                <option value="">Select your hobbies</option>
+                <option value="reading">Reading</option>
+                <option value="traveling">Traveling</option>
+                <option value="sports">Sports</option>
+                <option value="music">Music</option>
+                <option value="art">Art</option>
+            </select>
+
+            <fieldset>
+                <legend>Gender:</legend>
+                <label>
+                    <input type="radio" name="gender" value="male" required> Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female"> Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other"> Other
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Interests:</legend>
+                <label>
+                    <input type="checkbox" name="interests" value="sports"> Sports
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="music"> Music
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="reading"> Reading
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="traveling"> Traveling
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="cooking"> Cooking
+                </label>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+CSS :
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radipx: 4px;
+}
+
+fieldset {
+    border: none;
+    margin: 10px 0;
+}
+
+legend {
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+<!-- ==================================================================== -->
+
+
+3.Program Statement: Create an HTML List with nested items with the
+following structure:
+Beverages:
+
+ Coffee
+	o Tea
+	o Black Tea
+	o Green Tea
+ Milk
+
+
+
+HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverages List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <h1>Beverages</h1>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea
+                <ul>
+                    <li>Black Tea</li>
+                    <li>Green Tea</li>
+                </ul>
+            </li>
+            <li>Milk</li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
+
+
+CSS :
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+div {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+h1 {
+    color: #fff;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #fff;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+
+
+<!-- ==================================================== -->
+
+
+
+4.Program Statement: Create a college Web Page with specified elements.
+ Title of the page as "My College".
+ College name at the top in large text.
+ Address in smaller text.
+ List of courses offered in different colours and styles.
+ Scrolling text with a custom message.
+ College image at the bottom.
+
+
+
+HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My College</h1>
+        <p class="address">Andhra University, Visakhapatnam, Andhra Pradesh 530003</p>
+
+        <h2>Courses Offered</h2>
+        <ul class="courses-list">
+            <li class="course-1">Computer Science</li>
+            <li class="course-2">ARTS & COMMERCE</li>
+            <li class="course-3">Mechanical Engineering</li>
+            <li class="course-4">SCIENCE & TECHNOLOGY</li>
+            <li class="course-5">PHARMACEUTICAL SCIENCES</li>
+            <li class="course-6">IASE</li>
+        </ul>
+
+        <div class="scrolling-text">
+            <marquee behavior="scroll" direction="left">
+                Welcome to My College! Enroll now and shape your future!
+            </marquee>
+        </div>
+
+        <img src="https://res.cloudinary.com/duct1zxxm/image/upload/v1732389992/au_college_entrance_for_web_iwdmff.jpg" alt="College Campus" class="college-image">
+    </div>
+</body>
+
+</html>
+
+
+CSS :
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+}
+
+.address {
+    text-align: center;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+h2 {
+    color: #2980b9;
+    text-align: center;
+}
+
+.courses-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.courses-list li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.course-1 {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.course-2 {
+    background-color: #3498db;
+    color: white;
+}
+
+.course-3 {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.course-4 {
+    background-color: #f39c12;
+    color: white;
+}
+
+.course-5 {
+    background-color: #9b59b6;
+    color: white;
+}
+
+.course-6 {
+    background-color: grey;
+}
+
+.scrolling-text {
+    background-color: #fff;
+    color: blue;
+    padding: 10px;
+
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.scrolling-text::after {
+    content: attr(data-text);
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.college-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+@media (min-width : 830px) {
+    .courses-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    .course-1,
+    .course-2,
+    .course-3,
+    .course-4,
+    .course-5,
+    .course-6 {
+        width: 40vw;
+        margin-left: 15px;
+        color: #111;
+        font-weight: bold;
+    }
+}
+
+
+<!-- ======================================================== -->
+
+
+5.Program Statement: Style a Table with CSS styling.
+Design a table with three columns: City, Country, PopulaƟon.
+Add CSS to style borders, header background colour and alternate row colours. 
+
+
+HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>City Population Table</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New York</td>
+                    <td>USA</td>
+                    <td>8,336,817</td>
+                </tr>
+                <tr>
+                    <td>Tokyo</td>
+                    <td>Japan</td>
+                    <td>9,273,000</td>
+                </tr>
+                <tr>
+                    <td>London</td>
+                    <td>UK</td>
+                    <td>8,982,000</td>
+                </tr>
+                <tr>
+                    <td>Paris</td>
+                    <td>France</td>
+                    <td>2,165,423</td>
+                </tr>
+                <tr>
+                    <td>Berlin</td>
+                    <td>Germany</td>
+                    <td>3,769,495</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+CSS :
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Merge borders */
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    /* Add padding to cells */
+    text-align: left;
+    /* Align text to the left */
+    border: 1px solid #dddddd;
+    /* Light gray border */
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: #d1e7dd;
+}
